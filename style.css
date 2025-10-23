@@ -480,17 +480,6 @@ h1 {
     transition: all 0.3s ease;
 }
 
-@media (max-width: 992px) { 
-    .skills-experience-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .skills-container, .organizations-container {
-        width: 100%;
-        max-width: 600px;
-    }
-}
-
 @media (max-width: 768px) {
     section {
         scroll-margin-top: 60px;
@@ -498,26 +487,66 @@ h1 {
 
     .container {
         padding-top: 60px;
+        /* Add side padding so content doesn't touch the edge */
+        padding-left: 1rem; 
+        padding-right: 1rem;
+    }
+
+    /* Reduce default h1 size for mobile */
+    h1 {
+        font-size: 2rem;
     }
 
     .navbar {
         padding: 0.5rem 1rem;
     }
 
+    /* Reduce the gap and padding for the nav icons to prevent wrapping */
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.5rem;
+    }
+
     .nav-links a span {
         display: none;
     }
     
+    /* --- FIX 1: Banner width --- */
+    /* Your .banner-content was set to 60% width, which is too narrow on a phone. */
+    .banner-content {
+        width: 90%; 
+        padding: 1.5rem;
+    }
+
+    /* --- FIX 2: Font sizes --- */
+    /* Reduce large heading sizes for mobile */
+    .banner-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .banner-text h2 {
+        font-size: 2rem;
+    }
+
     .about-content {
         flex-direction: column;
         align-items: center;
+        padding: 1.5rem; /* Adjust padding */
     }
 
     .about-text-wrapper {
         order: 2;
     }
 
-    .about-image-right {
+    /* --- FIX 3: Incorrect Class Name --- */
+    /* You had '.about-image-right' in your CSS, 
+       but the class in your HTML is '.about-image'. 
+       This corrects it so the image moves to the top as intended. */
+    .about-image {
         order: 1;
         margin-bottom: 2rem;
     }
